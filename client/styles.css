@@ -1,0 +1,164 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.thumbnail {
+  top: 20%;
+  display: block;
+  z-index: 999;
+  cursor: pointer;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease;
+}
+
+.thumbnail:hover {
+  transform: scale(1.4);
+}
+
+.logoImage {
+  max-width: 21%;
+  height: auto;
+  position: fixed;
+  z-index: 1;
+  left: 80px;
+}
+
+.logoImage2 {
+  max-width: 11%;
+  height: auto;
+  position: fixed;
+  z-index: 1;
+  left: 60px;
+  top: 1%;
+}
+
+.titleImage {
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: rotateY(180deg);
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: rgb(196, 196, 196);
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbar a {
+  float: right;
+  display: block;
+  color: #8d021f;
+  text-align: center;
+  padding: 50px 30px;
+  text-decoration: none;
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+}
+
+.navbar a:hover {
+  background: #ddd;
+  color: black;
+}
+
+.bottom-left {
+  position: absolute;
+  bottom: 120px;
+  left: 16px;
+  font-size: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+}
+
+.left {
+  position: fixed;
+  top: 40%;
+  left: 24%;
+  font-size: 17px;
+  font-family: Arial, Helvetica, sans-serif;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  width: 37%;
+  height: auto
+}
+
+.right {
+  position: fixed;
+  top: 20%;
+  right: 10%;
+}
+
+.bottomleft {
+  position: fixed;
+  bottom: 29%;
+  left: 10%;
+  font-size: 17px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.bottomright {
+  position: fixed;
+  bottom: 18%;
+  right: 33%;
+  font-size: 17px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.dvlogo {
+  height: auto;
+  max-width: 40%;
+}
+
+.item {
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 5px;
+  margin-bottom: 1em;
+}
+
+.bolded {
+  font-weight: bolder;
+  font-size: 21px;
+}
+
+.background {
+  background-color: rgb(235, 235, 235);
+}
+
+.button {
+  background-color: #8d021f;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.input {
+  border: none;
+  border-bottom: 2px solid #8d021f;
+  font-size: 17px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.box {
+  display: flex;
+  justify-content: space-around;
+}
+
+.fleximage {
+  height: 30px;
+  flex: 1;
+}

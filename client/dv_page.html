@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="./index.html">Home</a>
+        <a href="./alta_page.html">Alta Ski Area</a>
+    </div>
+
+    <main>
+        <div id="my-div"></div>
+        <div id="my-div2"></div>  
+        <img src="img/ski-day-low-resolution-logo-black-on-transparent-background (1).png" alt="logo" class="logoImage2">
+        <div>
+            <div class="left">
+                <img src="img/Deer-Valley-Resort.jpg" alt="deer valley resort logo" class="dvlogo">
+                <br>
+                <br>
+                <div class="item">Known as the ski resort that has revolutionized ski-area service, Deer Valley is
+                    nestled in
+                    Utah's
+                    picturesque
+                    Rocky Mountain Wasatch Range. Since opening in 1981, they have committed themselves to providing the
+                    highest
+                    level of service and convenience in the industry. <br><br>
+                    TRAIL MAP KEY: 
+                </div>
+                <div class="box">
+                    <div><img src="img/green circle.png" alt="green circle" class="fleximage">Green</div>
+                    <div><img src="img/blue circle.png" alt="blue circle" class="fleximage">Blue</div>
+                    <div><img src="img/black diamond.png" alt="black diamond" class="fleximage">Black Diamond</div>
+                    <div><img src="img/double black diamond.png" alt="double black diamond" class="fleximage">Double Black Diamond</div>
+                    <div><img src="img/terrain park.png" alt="terrain park" class="fleximage">Terrain Park</div>
+                </div>
+            </div>
+            <div class="right">
+                <img src="img/dv_pistemap.jpg" class="thumbnail" height="400" width="650" />
+            </div>
+            <div class="bottomleft">
+                <p class="bolded">Create your trail list:</p>
+                <form>
+                    <input type="text" id="name-input" placeholder="New trail name?" class="input"/>
+                    <select name="type" id="trailType-input" placeholder="New trail difficulty?" class="input">
+                        <option value="Green">Green</option>
+                        <option value="Blue">Blue</option>
+                        <option value="Black">Black</option>
+                        <option value="Double Black">Double Black</option>
+                        <option value="Terrain Park">Terrain Park</option>
+                    </select>
+                    <button class="button">Add new trail</button>
+                </form>
+            </div>
+            <div class="bottomright">
+                <p class="bolded">See today's suggested trails:</p> <br>
+                <button id="randomTrailGen" class="button">Get trails</button>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="main.js"></script>
+
+</body>
+
+</html>
