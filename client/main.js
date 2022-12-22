@@ -1,4 +1,4 @@
-const trailBtn = document.querySelector("#randomTrailGen");
+const trailBtn = document.querySelector("#randomTrailsGen");
 const myDiv = document.querySelector("#my-div");
 const myDiv2 = document.querySelector("#my-div2");
 const form = document.querySelector("form");

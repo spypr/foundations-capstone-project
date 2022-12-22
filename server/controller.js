@@ -1,5 +1,5 @@
 let database = [];
-let newId = 10;
+let newId = 25;
 
 require("dotenv").config();
 const Sequelize = require("sequelize");
@@ -31,6 +31,7 @@ module.exports = {
             CREATE TABLE trails (
                 trail_id SERIAL PRIMARY KEY,
                 name VARCHAR,
+                trail_type VARCHAR,
                 resort_id INTEGER REFERENCES resorts(resort_id)
                 );
 
@@ -38,32 +39,32 @@ module.exports = {
                 values ('Deer Valley Resort'),
                 ('Alta Ski Area');  
 
-                INSERT INTO trails (name,resort_id)
-                values ('Argus',1),
-                ('Bandana',1),
-                ('Banner',1),
-                ('Dew Drop',1),
-                ('Edgars Alley',1),
-                ('Gemini',1),
-                ('Hawkeye',1),
-                ('Last Chance',1),
-                ('Morning Star',1),
-                ('Ottobahn',1),
-                ('Rosebud',1),
-                ('Silver Dollar',1),
-                ('Supreme',1),
-                ('Wizard',1),
-                ('Woodside',1),
-                ('Aggies Alley',2),
-                ('Blitz',2),
-                ('Watson Line',2),
-                ('Eagles Nest',2),
-                ('Lone Pine',2),
-                ('Mambo',2),
-                ('Tombstone',2),
-                ('Rock Gully',2),
-                ('Meadow',2),
-                ('Main Street',2); 
+                INSERT INTO trails (name,trail_type,resort_id)
+                values ('Argus','green',1),
+                ('Bandana','blue',1),
+                ('Banner','black',1),
+                ('Dew Drop','double black',1),
+                ('Edgars Alley','terrain park',1),
+                ('Gemini','green',1),
+                ('Hawkeye','blue',1),
+                ('Last Chance','black',1),
+                ('Morning Star','double black',1),
+                ('Ottobahn','terrain park',1),
+                ('Rosebud','green',1),
+                ('Silver Dollar','blue',1),
+                ('Supreme','black',1),
+                ('Wizard','double black',1),
+                ('Woodside','terrain park',1),
+                ('Aggies Alley','green',2),
+                ('Blitz','green',2),
+                ('Watson Line','blue',2),
+                ('Eagles Nest','black',2),
+                ('Lone Pine','green',2),
+                ('Mambo','blue',2),
+                ('Tombstone','green',2),
+                ('Rock Gully','blue',2),
+                ('Meadow','green',2),
+                ('Main Street','blue',2); 
                 `
       )
       .then(() => {
@@ -72,12 +73,14 @@ module.exports = {
       })
       .catch((err) => console.log("error seeding DB", err));
   },
+
   getResorts: (req, res) => {
     sequelize
       .query(`SELECT * FROM resorts;`)
       .then((dbRes) => res.status(200).send(dbRes[0]))
       .catch((err) => console.log("error on get resorts", err));
   },
+
   getTrails: (req, res) => {
     sequelize
       .query(
@@ -89,6 +92,7 @@ module.exports = {
       .then((dbRes) => res.status(200).send(dbRes[0]))
       .catch((err) => console.log("get trails error", err));
   },
+
   newTrail: (req, res) => {
     let { name, trailType } = req.body;
     let newRun = {
@@ -107,12 +111,14 @@ module.exports = {
 
     newId++;
   },
+
   deleteTrail: (req, res) => {
     let { id } = req.params;
     let index = database.findIndex((trailrun) => trailrun.id === +id);
     database.splice(index, 1);
     res.status(200).send(database);
   },
+
   changeType: (req, res) => {
     const { trailType } = req.body;
     const { id } = req.params;
