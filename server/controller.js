@@ -1,57 +1,70 @@
 let database = [];
 let newId = 10;
+
+require("dotenv").config();
+const Sequelize = require("sequelize");
+
+const { CONNECTION_STRING } = process.env;
+
+const sequelize = new Sequelize(CONNECTION_STRING, {
+  dialect: "postgres",
+  dialectOptions: {
+    ssl: {
+      rejectUnauthorized: false,
+    },
+  },
+});
+
 module.exports = {
   seed: (req, res) => {
     sequelize
       .query(
         `
-            drop table if exists trails;
-            drop table if exists resorts;
+          drop table if exists trails;
+          drop table if exists resorts;
 
-            CREATE TABLE resorts (
+          CREATE TABLE resorts (
                 resort_id SERIAL PRIMARY KEY, 
                 name VARCHAR
-            );
+                );
 
             CREATE TABLE trails (
                 trail_id SERIAL PRIMARY KEY,
                 name VARCHAR,
                 resort_id INTEGER REFERENCES resorts(resort_id)
-            );
+                );
 
-            insert into resorts (name)
-            values ('Deer Valley Resort'),
-            ('Alta Ski Area');
-    
+                INSERT INTO resorts (name)
+                values ('Deer Valley Resort'),
+                ('Alta Ski Area');  
 
-            insert into trails (name,country_id)
-            values ('Argus',1),
-            ('Bandana',1),
-            ('Banner',1),
-            ('Dew Drop',1),
-            ('Edgar's Alley',1),
-            ('Gemini',1),
-            ('Hawkeye',1),
-            ('Last Chance',1),
-            ('Morning Star',1),
-            ('Ottobahn',1),
-            ('Rosebud',1),
-            ('Silver Dollar',1),
-            ('Supreme',1),
-            ('Wizard',1),
-            ('Woodside',1),
-            ('Aggie's Alley',2),
-            ('Blitz',2),
-            ('Watson Line',2),
-            ('Eagle's Nest',2),
-            ('Lone Pine',2),
-            ('Mambo',2),
-            ('Tombstone',2),
-            ('Rock Gully',2),
-            ('Meadow',2),
-            ('Main Street',2);
-
-        `
+                INSERT INTO trails (name,resort_id)
+                values ('Argus',1),
+                ('Bandana',1),
+                ('Banner',1),
+                ('Dew Drop',1),
+                ('Edgars Alley',1),
+                ('Gemini',1),
+                ('Hawkeye',1),
+                ('Last Chance',1),
+                ('Morning Star',1),
+                ('Ottobahn',1),
+                ('Rosebud',1),
+                ('Silver Dollar',1),
+                ('Supreme',1),
+                ('Wizard',1),
+                ('Woodside',1),
+                ('Aggies Alley',2),
+                ('Blitz',2),
+                ('Watson Line',2),
+                ('Eagles Nest',2),
+                ('Lone Pine',2),
+                ('Mambo',2),
+                ('Tombstone',2),
+                ('Rock Gully',2),
+                ('Meadow',2),
+                ('Main Street',2); 
+                `
       )
       .then(() => {
         console.log("DB seeded!");
@@ -61,23 +74,17 @@ module.exports = {
   },
   getResorts: (req, res) => {
     sequelize
-      .query(
-        `
-       SELECT * FROM resorts;
-    `
-      )
+      .query(`SELECT * FROM resorts;`)
       .then((dbRes) => res.status(200).send(dbRes[0]))
       .catch((err) => console.log("error on get resorts", err));
   },
   getTrails: (req, res) => {
     sequelize
       .query(
-        `
-        SELECT tr.trail_id, tr.name AS Trail, re.resort_id, re.name AS resort
+        `SELECT tr.trail_id, tr.name AS trails, re.resort_id, re.name AS resorts
         FROM trails as tr
         JOIN resorts as re
-        ON re.resort_id = tr.resort_id;
-    `
+        ON re.resort_id = tr.resort_id;`
       )
       .then((dbRes) => res.status(200).send(dbRes[0]))
       .catch((err) => console.log("get trails error", err));

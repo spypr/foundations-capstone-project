@@ -37,11 +37,12 @@ function dispTrails(trail) {
 }
 
 function trailCallBack(trailrun) {
-  let trailrunArr = trailrun.data.results;
+  console.log(trailrun.data);
+  let trailrunArr = trailrun.data;
   for (i = 0; i < 3; i++) {
     let randomIndex = Math.floor(Math.random() * trailrunArr.length);
     let randomTrailrun = trailrunArr[randomIndex];
-    dispTeam(randomTrailrun.name);
+    dispTrails(randomTrailrun.name);
     console.log(randomTrailrun);
   }
 }
@@ -63,7 +64,7 @@ const changeTrail = (id) => {
 
 const getTrails = () => {
   myDiv2.textContent = "";
-  axios.get("").then(trailCallBack);
+  axios.get("http://localhost:4000/trails").then(trailCallBack);
 };
 
 const deleteTrail = (id) => {

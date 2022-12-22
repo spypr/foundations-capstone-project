@@ -3,14 +3,21 @@ const path = require("path");
 const app = express();
 const cors = require("cors");
 
-const { seed, newTrail, changeType, deleteTrail } = require("./controller");
+const {
+  seed,
+  getResorts,
+  getTrails,
+  newTrail,
+  changeType,
+  deleteTrail,
+} = require("./controller");
 
 app.use(express.json());
 app.use(cors());
 
 app.post("/seed", seed);
 app.get("/resorts", getResorts);
-app.get("/trail", getTrail);
+app.get("/trails", getTrails);
 
 app.post("/api/trail", newTrail);
 app.put("/api/trail/:id", changeType);
