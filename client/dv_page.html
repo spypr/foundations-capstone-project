@@ -10,15 +10,19 @@
 </head>
 
 <body>
-    <!-- <div class="navbar">
-        <a href="./index.html">Home</a>
+    <div class="navbar">
+        <div>
+            <a href="./index.html">Home</a>
+        </div>
+        <a href="./map_page.html">Map</a>
+        <a href="./sundance_page.html">Sundance Mountain Resort</a>
         <a href="./alta_page.html">Alta Ski Area</a>
-    </div> -->
+    </div>
 
     <main>
-        <div id="my-div"></div>
-        <div id="my-div2"></div>  
-        <!-- <img src="img/ski-day-low-resolution-logo-black-on-transparent-background (1).png" alt="logo" class="logoImage2"> -->
+  
+ 
+        <img src="img/ski-day-low-resolution-logo-black-on-transparent-background (1).png" alt="logo" class="logoImage2">
         <div>
             <div class="left">
                 <img src="img/Deer-Valley-Resort.jpg" alt="deer valley resort logo" class="dvlogo">
@@ -57,13 +61,15 @@
                     </select>
                     <button class="button">Add new trail</button>
                 </form>
+                <br>
+                <div id="my-div" class="newtrailoutput"></div>
             </div>
             <div class="bottomright">
                 <p class="bolded">See today's suggested trails:</p> <br>
                 <button id="randomTrailsGen" class="button">Get trails</button>
+                <div id="my-div2" class="newtrailoutput2"></div> 
             </div>
         </div>
-
     </main>
 
     <script src="../node_modules/axios/dist/axios.min.js"></script>

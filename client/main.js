@@ -8,24 +8,23 @@ const baseURL = "http://localhost:4000/api/trail";
 
 function dispTrail(trail) {
   myDiv.innerHTML = "";
-  // console.log(typeof trail.data)
   trail.forEach((trail) => {
     const trailName = document.createElement("h2");
     trailName.innerHTML = `
-        <p> ${trail.name} - Type: ${trail.trailType}</p>
-        <button onclick="deleteTrail(${trail.id})">delete</button>
+        <p> Trail Name: ${trail.name} <br/> Trail Type: ${trail.trailType}</p>
         <select 
         name="type"
         id="change-type-drop-down-${trail.id}"
         onchange="changeTrail(${trail.id})"
-        placeholder="change trail type">
-        <option value="Choose new type">Choose new type</option>
+        placeholder="change trail type" class="input">
+        <option value="Choose new type">Change trail type</option>
         <option value="Green">Green</option>
         <option value="Blue">Blue</option>
         <option value="Black">Black</option>
         <option value="Double Black">Double Black</option>
         <option value="Terrain Park">Terrain Park</option> 
-        </select>`;
+        </select>
+        <button onclick="deleteTrail(${trail.id})" class="deletebutton">Delete Trail</button>`;
     myDiv.appendChild(trailName);
   });
 }
@@ -39,10 +38,10 @@ function dispTrails(trail) {
 function trailCallBack(trailrun) {
   console.log(trailrun.data);
   let trailrunArr = trailrun.data;
-  for (i = 0; i < 3; i++) {
+  for (i = 0; i < 5; i++) {
     let randomIndex = Math.floor(Math.random() * trailrunArr.length);
     let randomTrailrun = trailrunArr[randomIndex];
-    dispTrails(randomTrailrun.name);
+    dispTrails(randomTrailrun.trails);
     console.log(randomTrailrun);
   }
 }

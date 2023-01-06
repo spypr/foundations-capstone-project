@@ -1,0 +1,46 @@
+Hello, my name is Steven Pyper, and this is my
+foundations captone project that demonstrates what I learned in my first 8 weeks
+at Dev Mountain. 
+
+My kids and I love to play in the snow.  We ski everyweek in the winter 
+and love to discover new trails to challenge ourselves.  Every ski resort has a 
+wide variety of trails and sometimes it is hard to plan out your day in advance.
+
+The website site I built is called Ski Day.
+.  It allows you to explore new
+ski reosrts and create your own custom ski run list with some added suggestions
+in case you need some ideas on what to try.
+
+When planning out this website, I used Figma for my mockups and I built it 
+using HTML, CSS, and Javascript, bit.io, Postman, express and sequel.  
+
+Lets take a look at how the website works. 
+
+This is Ski Day.  The home page lists several ski resorts to explore so let's
+check out one of my kids' favorites: Deer Valley.
+
+When we click on Deer Valley you will see that the page has a quick summary
+about the resort and below that a trail map key.  If you hover over the resort
+map it will expand to let you see all of the runs at the resort in greater 
+detail.  If you find a trail or two that you definetely want to add to your 
+trail list, you can add them in right here.  You can also add the difficulty
+level for the trail here before you add it.  Let's add the trail Success, and
+call it a blue. *****  If you accidently add the wrong
+trail type, you can update it here.  It's actually green.*****
+Add if you want to remove it from the trail
+list you can delete it by clicking the delete trail button.  
+
+If you want to to see the suggested trails for the day you can click on the 
+'get trails' button to see a random list list of 5 trails for the day.  
+
+The other resorts listed at the top of the page have similar features as the 
+Deer Valley page.
+
+I enjoyed building this website and my kids and I have already tested out a
+suggested list of ski runs.  Please let me know if you have any questions and 
+feel free to use it for you next Ski Day. 
+
+Thank you
+
+ 
+
